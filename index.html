@@ -102,7 +102,6 @@
   button.undo-btn:hover { background: #653035; }
   button.delete-btn { background: #7f1d1d; border-color: #c04545; color: #F7F3E9; }
   button.delete-btn:hover { background: #991f1f; }
-  .restore-row { margin-top: 22px; text-align: center; }
   .caption {
     display: none; margin-top: 14px;
     font-family: Georgia, 'Times New Roman', serif;
@@ -165,10 +164,6 @@
   <h2 class="section">Completed</h2>
   <div class="grid" id="done-list"></div>
   <div class="empty" id="done-empty">Nothing completed yet.</div>
-
-  <div class="restore-row" id="restore-row" style="display:none;">
-    <button id="restore-deleted-btn" type="button">Restore deleted posts</button>
-  </div>
 
   <footer class="site-foot">
     <div class="credit">Powered by <span class="gold">Muhammad Abubaker Hamza</span></div>
@@ -399,18 +394,9 @@ function render() {
   document.getElementById('progress').textContent = doneCount + ' of ' + POSTS.length + ' completed';
   document.getElementById('pending-empty').style.display = (visibleCount > 0 && doneCount === visibleCount) ? 'block' : 'none';
   document.getElementById('done-empty').style.display = (doneCount === 0) ? 'block' : 'none';
-  var deletedCount = 0;
-  for (var did in state.deleted) { if (state.deleted[did]) { deletedCount++; } }
-  document.getElementById('restore-row').style.display = (deletedCount > 0) ? 'block' : 'none';
 }
 
 loadState();
-document.getElementById('restore-deleted-btn').onclick = function() {
-  state.deleted = {};
-  saveState();
-  render();
-  showToast('Deleted posts restored');
-};
 render();
 </script>
 </body>

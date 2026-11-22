@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US History Caption Texts</title>
+<link rel="icon" href="cartoon.webp">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: #0A0A0A;
+    background-image: radial-gradient(ellipse 900px 480px at 50% -80px, rgba(201,162,39,0.14), rgba(10,10,10,0) 70%);
+    color: #F7F3E9;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 28px 16px 0;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 {
+    font-family: Georgia, 'Playfair Display', 'Times New Roman', serif;
+    font-size: 40px; line-height: 1.08; font-weight: bold;
+    color: #F7F3E9; letter-spacing: 0.5px;
+  }
+  h1 .gold { color: #FFC93C; }
+  .back-link {
+    display: inline-block; margin-top: 16px;
+    font-size: 15px; font-weight: 600; color: #FFC93C;
+    background: #171410; border: 1px solid #C9A227; border-radius: 999px;
+    padding: 8px 18px; letter-spacing: 0.3px; text-decoration: none;
+  }
+  .back-link:hover { background: #262626; }
+  .gold-rule { height: 2px; background: linear-gradient(90deg, rgba(201,162,39,0), #C9A227 18%, #FFC93C 50%, #C9A227 82%, rgba(201,162,39,0)); border: 0; margin: 22px 0 26px; }
+  .list { display: grid; grid-template-columns: 1fr; gap: 26px; }
+  .card {
+    background: linear-gradient(180deg, #171717, #101010);
+    border: 1px solid #2e2e2e; border-radius: 16px;
+    padding: 18px 20px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  }
+  .card-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 21px; font-weight: bold; line-height: 1.3; margin-bottom: 12px;
+  }
+  .caption-text {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15.5px; line-height: 1.65; white-space: pre-wrap;
+    background: #0b0b0b; border: 1px solid #2c2c2c; border-radius: 10px; padding: 14px 16px;
+  }
+  .btnrow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  button {
+    font-family: inherit; font-size: 16px; font-weight: 600;
+    min-height: 50px; padding: 12px 18px;
+    border-radius: 10px; border: 1px solid #C9A227;
+    background: #1f1f1f; color: #F7F3E9; cursor: pointer;
+    transition: transform 0.08s ease, opacity 0.15s ease, background 0.15s ease;
+  }
+  button:hover { background: #262626; }
+  button:active { opacity: 0.85; transform: scale(0.98); }
+  button.gold { background: linear-gradient(180deg, #FFC93C, #f0b41f); color: #0A0A0A; border-color: #FFC93C; }
+  button.gold:hover { background: linear-gradient(180deg, #ffd35c, #FFC93C); }
+  button.delete-btn { background: #7f1d1d; border-color: #c04545; color: #F7F3E9; }
+  button.delete-btn:hover { background: #991f1f; }
+  .empty { font-size: 15.5px; color: #bdb6a4; padding: 4px 0 16px; display: none; }
+  footer.site-foot {
+    margin-top: 44px; padding: 22px 10px 30px;
+    border-top: 1px solid #2c2c2c; text-align: center;
+  }
+  footer.site-foot .credit {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px; color: #F7F3E9; letter-spacing: 0.4px;
+  }
+  footer.site-foot .credit .gold { color: #FFC93C; }
+  #toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+    background: #FFC93C; color: #0A0A0A; font-size: 16px; font-weight: bold;
+    padding: 12px 22px; border-radius: 24px; display: none; z-index: 99;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.6); max-width: 92vw; text-align: center;
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 12px 0; }
+    h1 { font-size: 30px; }
+    .card { padding: 14px 14px 16px; }
+    .card-title { font-size: 19px; }
+    button { flex: 1 1 auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>US History <span class="gold">Caption Texts</span></h1>
+    <a class="back-link" href="index.html">Back to Posts</a>
+  </header>
+  <hr class="gold-rule">
+
+  <div class="list" id="text-list"></div>
+  <div class="empty" id="text-empty">All caption texts deleted.</div>
+
+  <footer class="site-foot">
+    <div class="credit">Powered by <span class="gold">Muhammad Abubaker Hamza</span></div>
+  </footer>
+</div>
+<div id="toast">Text copied</div>
+
+<script>
+var TEXTS = [{"id": "post-23", "title": "Desmond Doss at Hacksaw Ridge, 1945", "story": "He went to war refusing to carry a gun, and he saved 75 men in a single day.\n\nDesmond Doss was a skinny Seventh-day Adventist from Lynchburg, Virginia, who believed the commandment \"Thou shalt not kill\" applied to him even in uniform. He could have stayed home, because his shipyard job offered him a deferment, but he felt called to serve, so he enlisted as a medic, the one job where he could save lives instead of taking them.\n\nThe Army did not know what to do with him. In training, men threw shoes at him while he prayed, and officers tried to force him out. He would not touch a weapon and he would not work on his Saturday Sabbath, but he never complained and he never gave in.\n\nIn April 1945 his unit, the 307th Infantry, was ordered up a sheer 400-foot cliff on Okinawa called the Maeda Escarpment, known to the men as Hacksaw Ridge. At the top, Japanese fire cut the company to pieces and the order came to retreat. Everyone went down the cargo nets except Doss. He stayed on that fire-swept plateau alone with the wounded.\n\nFor the next twelve hours he crawled from man to man under shell and machine-gun fire, dragged each one to the cliff edge and lowered him to safety in a rope litter, one at a time. Between rescues he prayed the same prayer: \"Lord, please help me get one more.\" By nightfall he had brought down 75 men, including soldiers who had once mocked him.\n\nDays later he was badly wounded himself, and gave up his own stretcher to a man he believed was hurt worse.\n\nOn 12 October 1945, President Harry Truman placed the Medal of Honor around his neck. Doss was the first conscientious objector in American history to receive it. He had proved that a man does not need a weapon to be the bravest soldier on the field.\n\nHad you ever heard of the soldier who saved 75 men without firing a single shot?"}, {"id": "post-24", "title": "Robert Smalls Steals a Confederate Warship, 1862", "story": "He stole a Confederate warship before breakfast, and freed everyone he loved.\n\nRobert Smalls was born enslaved in Beaufort, South Carolina, in 1839. Sent to Charleston at twelve to hire out his labour, he kept just one dollar of the sixteen he earned, and he fell in love with the sea. By 1861 he was the most trusted pilot in Charleston Harbor, and he was still property. He and his wife Hannah had tried to buy their family's freedom, but the price of 800 dollars was far beyond what they could save.\n\nThen the Civil War gave him another way. Smalls was put to work aboard the Planter, a Confederate transport steamer carrying guns between the harbour forts. He learned every signal, every checkpoint, every channel. And he waited.\n\nIn the early hours of 13 May 1862, the ship's white officers broke the rules and spent the night ashore. Smalls put on the captain's straw hat, gathered the enslaved crew, and steamed quietly to another wharf, where Hannah, their children and the crew's families were hiding. Then he did the boldest thing of all: he sailed straight through the harbour, giving the correct whistle signals at every fort, including mighty Fort Sumter, whose guns never suspected a thing.\n\nOutside the harbour waited the Union blockade. Smalls struck the Confederate flags, raised a white bed sheet, and surrendered the Planter, with its guns, its ammunition and its code book, to the USS Onward. In one night, 16 enslaved people became free.\n\nThe North made him a hero. He met President Lincoln, piloted Union ships for the rest of the war, and in December 1863 took command of the Planter as the first Black captain of a United States vessel. After the war he bought the very house in Beaufort where he had been enslaved, served in the United States Congress, and wrote the South Carolina law that created the first free public school system in America.\n\nThe man they had owned ended up owning the house, and helping to run the country.\n\nWhich part of his story surprises you more, the stolen warship or the seat in Congress?"}, {"id": "post-25", "title": "Ruby Bridges Walks to School, 1960", "story": "She was six years old, and it took four federal marshals to walk her to school.\n\nOn the morning of 14 November 1960, Ruby Bridges put on her best white dress and walked up the steps of William Frantz Elementary School in New Orleans. She was the first Black child to attend an all-white elementary school in the South, and an angry crowd was waiting behind the barricades, shouting and waving signs. Ruby thought it was Mardi Gras.\n\nShe spent her first day sitting in the principal's office while white parents stormed in and pulled their own children out, one classroom after another, until the school was empty. On the second day, a young teacher from Boston named Barbara Henry took Ruby into an empty classroom, and for the entire school year that classroom held exactly two people. Every other teacher had refused to teach her.\n\nFor a year the marshals walked her past the same crowds every morning. One woman threatened to poison her, so Ruby was allowed to eat only food she brought from home. Another woman held up a Black doll in a tiny coffin. Ruby prayed on the school steps, not for herself, but for the crowd, because she said they needed it.\n\nHer family paid for that walk. Her father lost his job at the gas station. The local grocery store refused to sell them food. Her grandparents were thrown off the land they farmed in Mississippi. Through all of it, Ruby never missed a single day of school.\n\nThe next year the crowds were gone, the classrooms filled again, and Ruby simply went to school like any other child. Norman Rockwell turned her walk into one of the most famous paintings in America, The Problem We All Live With.\n\nShe grew up, raised four sons, and founded the Ruby Bridges Foundation to teach children tolerance. In 1960, the bravest person in New Orleans weighed about forty pounds and carried her own schoolbooks.\n\nWere you ever taught her story when you were in school?"}, {"id": "post-26", "title": "Alvin York in the Argonne Forest, 1918", "story": "\"Well, York,\" his general said, \"I hear you have captured the whole German army.\" York shook his head. \"No sir. I got only 132.\"\n\nAlvin York was a dirt-poor Tennessee farm boy, a hard-drinking brawler who found religion and was then drafted into a war he was not sure his faith allowed him to fight. His request to be excused from combat as a conscientious objector was denied, and after long talks with his captain and long nights with his Bible, he decided he would go.\n\nOn 8 October 1918, in the Argonne Forest in France, Corporal York was one of 17 men sent behind German lines to silence the machine guns that were shredding their regiment. The patrol surprised a group of Germans and took them prisoner, and then the hillside erupted. Machine-gun fire killed six Americans and wounded three, and suddenly York, a crack shot who had hunted turkeys in the Tennessee hills, was the senior man left standing.\n\nWhat he did next sounds invented. Standing in the open, he picked off the German gunners one by one, every time a head rose above the trench. When six Germans charged him with fixed bayonets, he drew his pistol and stopped all six. The German commander, who had emptied his own pistol at York without hitting him once, walked out and surrendered his entire position.\n\nYork and his seven surviving men marched 132 prisoners back to the American lines, collecting still more along the way. He had killed at least 25 enemy soldiers and silenced some 35 machine guns, and he had opened the way for his regiment to advance.\n\nHe was promoted to sergeant on the spot, and later received the Medal of Honor from General Pershing himself. Back home he stayed the same quiet man, using his fame to build a school for the mountain children of Tennessee.\n\nDo you believe one man really did all of that in a single morning?"}, {"id": "post-27", "title": "Charity Adams and the 6888th Battalion, 1945", "story": "Seventeen million letters were sitting in English warehouses, and some soldiers had not heard from home in two years.\n\nBy early 1945, the Army's mail system in Europe had collapsed under its own weight. Mountains of letters and parcels, an estimated 17 million pieces, were stacked to the rafters in Birmingham, addressed to men who kept moving with the front. Morale was sinking with every missing letter. The Army's answer was a brand-new unit that many of its own officers did not believe in: the 6888th Central Postal Directory Battalion, 855 Black women of the Women's Army Corps, commanded by a 26-year-old major from South Carolina named Charity Adams, the first Black woman officer in the Corps.\n\nThey were given six months to clear the backlog. Adams put her women on three shifts a day, seven days a week, working through the night in cold, dim warehouses. They built a card index of seven million names to untangle the thousands of soldiers who shared the same name, tracked down men who had been wounded, moved or killed, and sent the mail on its way. Their motto said everything: \"No mail, low morale.\"\n\nThey finished Birmingham in three months, half the time allowed. Then the Army sent them to Rouen, in France, where another mountain of undelivered mail was waiting, and they cleared that too.\n\nThere was no parade when they came home in 1946. The unit was quietly disbanded, and for decades almost nobody knew their names. Charity Adams rose to lieutenant colonel, the highest-ranking Black woman in the Army of her time, and spent the rest of her life in education and service.\n\nRecognition finally arrived: a monument at Fort Leavenworth, a Meritorious Unit Commendation in 2019, and the Congressional Gold Medal. The women who carried an army's heart in their hands had waited more than seventy years to be thanked.\n\nHad you ever heard of the 6888th before today?"}];
+var LS_KEY = 'us-history-texts-v1';
+var deleted = {};
+
+function loadState() {
+  try {
+    var raw = localStorage.getItem(LS_KEY);
+    if (raw) {
+      var s = JSON.parse(raw);
+      if (s && typeof s === 'object') {
+        deleted = s.deleted || {};
+      }
+    }
+  } catch (e) {}
+}
+function saveState() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ deleted: deleted })); } catch (e) {}
+}
+
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(function() { t.style.display = 'none'; }, 1800);
+}
+
+function copyText(text, btn) {
+  function ok() {
+    showToast('Text copied');
+    if (btn) {
+      var old = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(function() { btn.textContent = old; }, 1600);
+    }
+  }
+  function fallback() {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    ta.style.top = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    var done = false;
+    try { done = document.execCommand('copy'); } catch (e) { done = false; }
+    document.body.removeChild(ta);
+    if (done) { ok(); } else { showToast('Copy failed, hold and copy the text'); }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(ok, fallback);
+  } else {
+    fallback();
+  }
+}
+
+function makeCard(item) {
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var title = document.createElement('div');
+  title.className = 'card-title';
+  title.textContent = item.title;
+  card.appendChild(title);
+
+  var text = document.createElement('div');
+  text.className = 'caption-text';
+  text.textContent = item.story;
+  card.appendChild(text);
+
+  var row = document.createElement('div');
+  row.className = 'btnrow';
+
+  var cp = document.createElement('button');
+  cp.className = 'gold';
+  cp.textContent = 'Copy Text';
+  cp.onclick = function() { copyText(item.story, cp); };
+  row.appendChild(cp);
+
+  var del = document.createElement('button');
+  del.className = 'delete-btn';
+  del.textContent = 'Delete';
+  del.onclick = function() {
+    if (del.getAttribute('data-confirm') === '1') {
+      deleted[item.id] = true;
+      saveState();
+      render();
+      showToast('Text deleted');
+    } else {
+      del.setAttribute('data-confirm', '1');
+      del.textContent = 'Tap again to delete';
+      setTimeout(function() {
+        del.removeAttribute('data-confirm');
+        del.textContent = 'Delete';
+      }, 3000);
+    }
+  };
+  row.appendChild(del);
+
+  card.appendChild(row);
+  return card;
+}
+
+function render() {
+  var list = document.getElementById('text-list');
+  list.innerHTML = '';
+  var visible = 0;
+  for (var i = 0; i < TEXTS.length; i++) {
+    var item = TEXTS[i];
+    if (deleted[item.id]) { continue; }
+    visible++;
+    list.appendChild(makeCard(item));
+  }
+  document.getElementById('text-empty').style.display = (visible === 0) ? 'block' : 'none';
+}
+
+loadState();
+render();
+</script>
+</body>
+</html>
